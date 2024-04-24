@@ -1,0 +1,156 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Relaway", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(38deg, rgb(2, 0, 36) 21%, rgb(36, 107, 156) 77%, rgb(0, 212, 255) 100%) fixed;
+}
+
+.text {
+  color: #fff;
+}
+
+section {
+  position: absolute;
+  height: 80%;
+  width: 100%;
+  margin-top: 50px;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: block;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.video-container {
+  height: 40%;
+  width: 100%;
+}
+.video-container iframe {
+  width: 100%;
+  height: 100%;
+}
+
+#text-dr {
+  color: #fff;
+  margin: 0px 0px 8px;
+}
+
+#text-qr {
+  color: #fff;
+  margin: 8px 0px 0px;
+}
+#text-qr a {
+  color: #fff;
+  margin: 8px 0px 0px;
+  text-decoration: none;
+  border-bottom: 1px solid;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 90px;
+  background: #222222;
+}
+footer .footer-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  padding: 12px;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 600px) {
+  section {
+    padding-right: 50px;
+    padding-left: 50px;
+  }
+}
+@media (min-width: 768px) {
+  header ul {
+    display: flex;
+  }
+  .sidebar {
+    display: none !important;
+  }
+  .video-container {
+    height: 50%;
+  }
+  footer {
+    width: 50%;
+    margin: 50% 25% 0%;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+  }
+}
+@media (min-width: 1024px) {
+  section {
+    padding-right: 70px;
+    padding-left: 70px;
+  }
+  .video-container {
+    height: 60%;
+  }
+  header {
+    padding: 38px 30px;
+    padding-right: 60px;
+  }
+  header .logo {
+    font-size: medium;
+  }
+}
+@media (min-width: 1000px) {
+  section {
+    padding-left: 190px;
+    padding-right: 190px;
+  }
+}
+@media (min-width: 1100px) {
+  section {
+    padding-left: 190px;
+    padding-right: 190px;
+  }
+}
+@media (min-width: 1200px) {
+  section {
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+}
+@media (min-width: 1300px) {
+  section {
+    padding-left: 190px;
+    padding-right: 190px;
+  }
+}
+@media (min-width: 1400px) {
+  section {
+    padding-left: 170px;
+    padding-right: 170px;
+  }
+}
+@media (min-width: 1500px) {
+  section {
+    padding-left: 450px;
+    padding-right: 450px;
+  }
+  section footer {
+    width: 30%;
+    margin: 50% 35% 0%;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+  }
+}/*# sourceMappingURL=home.css.map */

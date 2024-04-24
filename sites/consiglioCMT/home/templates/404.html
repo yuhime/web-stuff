@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Lorem ipsum dolor sit amet (IT) {% endblock %}
+{% block archiveactive %}active{% endblock %}
+{% block archiveactive2 %}active{% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+<link rel="stylesheet" href="{% static 'css/404.css' %}">
+{%endblock%}
+{% comment %}
+<!--<body>--> {% endcomment %}
+{% block content %}
+<section>
+    <div>
+        <div class="title"><h1>Nessun elemento trovato.</h1></div>
+        <!-- <div class="subtitle"><h2>No elements found</h2></div>
+        <div class="description"><p>The page is empty</p></div> -->
+    </div>
+</section>
+{% endblock %}
+{% comment %}
+<!--</body>--> {% endcomment %}

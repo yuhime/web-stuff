@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Lorem ipsum dolor sit amet (IT) {% endblock %}
+{% block archiveactive %}active{% endblock %}
+{% block archiveactive2 %}active{% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/archive.css' %}">
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+{% endblock %}
+{% comment %}
+<!--<body>--> {% endcomment %}
+{% block content %}
+<section>
+    <h1>Archivio Delle Sedute Comunali</h1>
+    <div class="folders">
+        {% for yr in years %}
+        <div class="folder-itm">
+            <a href="/archive/{{ yr.anno }}">{{ yr.anno }}</a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
+{% comment %}
+<!--</body>--> {% endcomment %}

@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{% static 'images/img0006.png' %}">
+    {% block style %}{% endblock %}
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <a class="logo">
+            <img class="img-logo" src="{% static 'images/img0006.png' %}" alt="Logo associazione">
+            Lorem ipsum dolor sit amet consectetur (IT)
+        </a>
+        <ul>
+            <li><a href="/" class="{% block homeactive %}{% endblock %}">Home</a></li>
+            <li><a href="/archive/" class="{% block archiveactive %}{% endblock %}">Archive</a></li>
+        </ul>
+    </header>
+    
+    <div class="sidebar">
+        <div class="toggle-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="links">
+            <a href="/" class="{% block homeactive2 %}{% endblock %}">
+                <ion-icon name="home-outline"></ion-icon>
+                Home
+            </a>
+            <a href="/archive/" class="{% block archiveactive2 %}{% endblock %}">
+                <ion-icon name="library-outline"></ion-icon>
+                Archivio
+            </a>
+        </div>
+    </div>
+    {% block content %}
+    {% endblock %}
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        document.querySelector('.sidebar .toggle-btn').addEventListener('click', function () {
+            document.querySelector('.sidebar').classList.toggle('active');
+            document.querySelector('header').classList.toggle('blurred');
+            document.querySelector('section').classList.toggle('blurred');
+        });
+        function outsideClick(event, notelem) {
+            notelem = $(notelem);
+            var clickedOut = true, i, len = notelem.length;
+            for (i = 0; i < len; i++) {
+                if (event.target == notelem[i] || notelem[i].contains(event.target)) {
+                    clickedOut = false;
+                }
+            }
+            if (clickedOut) return true;
+            else return false;
+        }
+        document.addEventListener('click', function (event) {
+            element = document.querySelector('.sidebar')
+            if (document.querySelector('.sidebar').classList.contains('active')) {
+                if (outsideClick(event, element)) {
+                    document.querySelector('.sidebar').classList.toggle('active');
+                    document.querySelector('header').classList.toggle('blurred');
+                    document.querySelector('section').classList.toggle('blurred');
+                }
+            }
+        });
+        document.querySelector('section').addEventListener('scroll', function () { scrollFunction() });
+
+        function scrollFunction() {
+            if (document.querySelector('section').scrollTop > 30 || document.documentElement.scrollTop > 30) {
+                document.querySelector("header").classList.add('downtop');
+            } else {
+                document.querySelector("header").classList.remove('downtop');
+            };
+        };
+    </script>
+</body>
+</html>

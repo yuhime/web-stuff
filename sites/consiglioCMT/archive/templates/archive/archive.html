@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Lorem ipsum dolor sit amet (IT) {% endblock %}
+{% block archiveactive %}active{% endblock %}
+{% block archiveactive2 %}active{% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+<link rel="stylesheet" href="{% static 'css/archive2.css' %}">
+<link rel="stylesheet" href="{% static 'css/tail.css' %}">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+{% endblock %}
+{% block content %}
+{% comment %}
+<!--<body>--> {% endcomment %}
+
+<section>
+    {% for data in element %}
+    <div class="menu hover:cursor-pointer" onclick="showElement(this)">
+        <p>Seduta del: {{data.data}} <ion-icon class="ab" name="chevron-down"></ion-icon>
+        </p>
+        <div class="hidden-content hover:cursor-default">
+            <div class="item" id="video"><a href="{{data.video}}">VIDEO</a></div>
+            <div class="item" id="convocazione"><a href="{{ data.convocazione }}">CONVOCAZIONE</a></div>
+            <div class="item"><strong class="mr-1">PARTE:</strong> {{ data.parte }}</div>
+            <div class="item">{{ data.nota }}</div>
+        </div>
+    </div>
+    {% endfor %}
+</section>
+<script>
+    function showElement(element) {
+        // $(".hidden-content").fadeToggle('300ms')
+        $(element).children('.hidden-content').toggleClass('show')
+        $(element).children('p').children('.ab').toggleClass('shows')
+        $(element).toggleClass('show')
+
+        let all_menu = document.querySelectorAll('.menu').forEach((value, index) => {
+            if (value != element) {
+                if ($(value).children('.hidden-content').hasClass('show')) {
+                    $(value).children('.hidden-content').toggleClass('show');
+                    $(value).children('p').children('.ab').toggleClass('shows')
+                }
+            }
+        });
+    }
+</script>
+
+{% comment %}
+<!--</body>--> {% endcomment %}
+{% endblock %}

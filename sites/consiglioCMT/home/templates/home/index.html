@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}********** Di *******{% endblock %}
+{% block homeactive %}active{% endblock %}
+{% block homeactive2 %}active{% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/base.css' %}"> 
+<link rel="stylesheet" href="{% static 'css/home.css' %}"> 
+{%endblock%}
+{% comment %}
+<!--<body>--> {% endcomment %}
+{% block content %}
+<section>
+    <p id="text-dr">Diretta: ********** 11-11-2022.</p>
+    <div class="video-container">
+        <iframe id="lkvideo" class="lp" src="https://www.youtube.com/embed/jfKfPfyJRdk?autoplay=1&mute=0"
+            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <p id="text-qr">Allegato: <a href="{{ obj.file.url }}">{{ obj.titolo_file }}</a></p>
+</section>
+<footer>
+    <div class="footer-container">
+        <p class="text">Copyright &copy; 2023 https://github.com/yuhime</p>
+    </div>
+</footer>
+<script>
+    document.querySelector('iframe').addEventListener('load', function (event) {
+        element = document.querySelector('.sidebar')
+        if (document.querySelector('.sidebar').classList.contains('active')) {
+            if (outsideClick(event, element)) {
+                document.querySelector('.sidebar').classList.toggle('active');
+                document.querySelector('header').classList.toggle('blurred');
+                document.querySelector('section').classList.toggle('blurred');
+            }
+        }
+    });
+</script>
+{% endblock %}
+{% comment %}
+<!-- </body> --> {% endcomment %}
